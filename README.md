@@ -4,6 +4,8 @@
 
 > **Project status: DESIGN / PROTOTYPE PLANNING.** The architecture and experiments are documented; hardware assembly, firmware execution and physical validation are not yet claimed.
 
+[Project status and development milestones](PROJECT_REVIEW.md)
+
 ## Why I am building this
 
 As an embedded systems engineer, I want communication interfaces to be more than names I recognize in a schematic or job description. I want to understand what is happening electrically, what the controller is doing, how data is framed and transferred, where failures occur, and how to debug them with instruments and firmware.
