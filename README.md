@@ -59,6 +59,46 @@ flowchart TD
 9. **Make it fail on purpose.** Disconnect a sensor, send malformed UART input, stop a CAN node or create controlled bus-load changes. Record the response.
 10. **Write down what happened.** Keep captures and logs with configuration, firmware revision, procedure and limitations. Separate a design expectation from a measured result.
 
+## Development Schedule (Gantt)
+
+This is a **proposed planning baseline**, not a report of completed work. Dates assume a start on 19 October 2026 and should be revised when hardware availability, board revisions and available bench time are known. Keep the status labels honest and only close a milestone when its evidence is recorded.
+
+```mermaid
+gantt
+    title Embedded Communication Platform — Proposed Prototype Plan
+    dateFormat YYYY-MM-DD
+    axisFormat %b %d
+    tickInterval 1week
+
+    section Baseline and foundation
+    M0 Hardware and pin-map freeze           :m0, 2026-10-19, 7d
+    M1 Buildable firmware and UART console   :m1, after m0, 14d
+
+    section Interface bring-up
+    M2 SPI IMU readout                       :m2, after m1, 7d
+    M3 I2C temperature readout               :m3, after m1, 7d
+    M4 CAN two-node heartbeat and messages   :m4, after m2, 14d
+
+    section Integration and evidence
+    M5 Integrated acquisition and telemetry  :m5, after m4, 14d
+    M6 Fault injection and recovery tests    :m6, after m5, 14d
+    Documentation and reproducibility review :review, after m6, 7d
+```
+
+**Milestone exit evidence**
+
+- **M0:** exact board/module revisions, pin maps, power limits and transceiver details reviewed.
+- **M1:** reproducible build plus UART transcripts and parser tests.
+- **M2:** IMU identity/configuration read confirmed by logs or bus capture.
+- **M3:** valid temperature reads and absent-device behaviour documented.
+- **M4:** two nodes exchange defined CAN messages with physical-layer checks.
+- **M5:** timestamped concurrent telemetry and loop/timing observations.
+- **M6:** reproducible fault logs showing detection and bounded recovery.
+
+The SPI and I²C work can proceed in parallel after M1. The dates are planning estimates, not performance claims. See [PROJECT_REVIEW.md](PROJECT_REVIEW.md) for the full milestone definitions and firmware recommendations.
+
+---
+
 ## Protocol quick reference
 
 | If I need to… | First interface to consider | Questions to ask |
