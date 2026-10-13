@@ -151,6 +151,8 @@ The terms are not perfectly interchangeable: SPI and I²C describe bus signallin
 
 More detailed protocol-specific questions are included in each interface folder.
 
+When an experiment is run, start from the [experiment record template](12_Results/EXPERIMENT_RECORD_TEMPLATE.md) to capture configuration, measurements, raw evidence and limitations.
+
 ## Frequently asked questions
 
 <details>
